@@ -24,8 +24,9 @@ body {
     background-position: center;
 }
 #boxNorth {
-    background-image: url("/images/Sunset2.jpg");
+    background-image: url("/images/Makapuu.jpg");
     background-position: center;
+    color: white;
 }
 footer {
     color: white;

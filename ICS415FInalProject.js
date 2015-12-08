@@ -20,6 +20,7 @@ if (Meteor.isClient) {
             return Posts.find();
         }
     })
+
 }
 
 if (Meteor.isServer) {

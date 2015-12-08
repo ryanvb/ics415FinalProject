@@ -72,7 +72,7 @@
             <div class="col-md-4">
                 <h2>Pics</h2>
                 <p> Pictures of different Hawaiian fish.</p>
-                <p><a class="btn btn-default" href="{{pathFor route= 'about'}}" role="button">Enter Pics &raquo;</a></p>
+                <p><a class="btn btn-default" href="{{pathFor route= 'pics'}}" role="button">Enter Pics &raquo;</a></p>
             </div>
         </div>
     </div>
@@ -96,6 +96,19 @@
     </ul>
 </template>
 
+<template name="posts2">
+    <h1>Posts:</h1>
+    <ul>
+        {{#each posts}}
+        <li>
+            <h3>{{title}}</h3>
+            <p><em>by {{username}}</em></p>
+            <p>{{body}}</p>
+        </li>
+        {{/each}}
+    </ul>
+</template>
+
 <template name="form">
     <form>
         <label>Post Title:
@@ -106,6 +119,9 @@
         </label>
         <input type="submit" value="Submit" id="submit"/>
     </form>
+
+
+
 </template>
 <template name="box2">
     <div id="boxSouth">
@@ -118,7 +134,7 @@
 <template name="box1">
     <div id="boxNorth">
         <div class="boxed">
-            <h2>North Shore.</h2>
+            <h2>Makapu'u Beach.</h2>
         </div>
     </div>
 </template>
@@ -142,27 +158,6 @@
 <template name="myformsite">
     {{> loginButtons}}
     {{> box1}}
-    {{> posts}}
-    {{#if currentUser}}
-    {{>form}}
-    {{else}}
-    <p>Please log in to submit a new post.</p>
-    {{/if}}
-    {{> box2}}
-    {{> posts}}
-    {{#if currentUser}}
-    {{>form}}
-    {{else}}
-    <p>Please log in to submit a new post.</p>
-    {{/if}}
-    {{> box3}}
-    {{> posts}}
-    {{#if currentUser}}
-    {{>form}}
-    {{else}}
-    <p>Please log in to submit a new post.</p>
-    {{/if}}
-    {{> box4}}
     {{> posts}}
     {{#if currentUser}}
     {{>form}}
