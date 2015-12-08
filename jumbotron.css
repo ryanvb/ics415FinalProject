@@ -1,0 +1,37 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+    background-color: #46b8da;
+}
+.jumbotron {
+    background-image: url("/images/Ulua.png");
+}
+.boxed {
+    border: 1px solid black ;
+    height: 200px;
+}
+#boxSouth {
+    background-image: url("/images/Kewalos.jpg");
+}
+#boxEast {
+    color: white;
+    background-image: url("/images/Makapuu.jpg");
+    background-position: center;
+}
+#boxWest {
+    background-image: url("/images/Makaha.jpg");
+    background-position: center;
+}
+#boxNorth {
+    background-image: url("/images/Sunset2.jpg");
+    background-position: center;
+}
+footer {
+    color: white;
+}
+.aboutboxed{
+    border: 1px solid black;
+    height: 200px;
+    background-color: white;
+}

@@ -1,0 +1,318 @@
+<template name="forumpage">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Ryan's Web Project</a>
+                <a class="navbar-brand" href="{{pathFor route= 'home'}}">Home</a>
+                <a class="navbar-brand" href="{{pathFor route= 'about'}}">About</a>
+                <a class="navbar-brand" href="{{pathFor route= 'forumpage'}}">Forum</a>
+                <a class="navbar-brand" href="{{pathFor route= 'pics'}}">Pics</a>
+            </div>
+        </div>
+    </nav>
+  <h2>Forum</h2>
+    {{> myformsite}}
+    <hr>
+    <footer>
+        <p>&copy; Ryan Buillard</p>
+    </footer>
+</template>
+
+<template name= "home">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Ryan's Web Project</a>
+                <a class="navbar-brand" href="{{pathFor route= 'home'}}">Home</a>
+                <a class="navbar-brand" href="{{pathFor route= 'about'}}">About</a>
+                <a class="navbar-brand" href="{{pathFor route= 'forumpage'}}">Forum</a>
+                <a class="navbar-brand" href="{{pathFor route= 'pics'}}">Pics</a>
+                <a class="navbar-brand" href="#">{{> loginButtons}}</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+            <h1>Oahu Fishing Forum</h1>
+            <p><a class="btn btn-primary btn-lg" href="{{pathFor route= 'forumpage'}}" role="button">Enter Here &raquo;</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-md-4">
+                <h2>About This Site</h2>
+                <p>This will show you what my website is.</p>
+                <p><a class="btn btn-default" href="{{pathFor route= 'about'}}" role="button" >Enter About &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Posts</h2>
+                <p>This links to the forum postings.</p>
+                <p><a class="btn btn-default" href="{{pathFor route= 'forumpage'}}" role="button">Enter Forum &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Pics</h2>
+                <p> Pictures of different Hawaiian fish.</p>
+                <p><a class="btn btn-default" href="{{pathFor route= 'about'}}" role="button">Enter Pics &raquo;</a></p>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+    <footer>
+        <h4>&copy; 2015 Ryan Buillard</h4>
+    </footer>
+</template>
+
+<template name="posts">
+    <h1>Posts:</h1>
+    <ul>
+        {{#each posts}}
+        <li>
+            <h3>{{title}}</h3>
+            <p><em>by {{username}}</em></p>
+            <p>{{body}}</p>
+        </li>
+        {{/each}}
+    </ul>
+</template>
+
+<template name="form">
+    <form>
+        <label>Post Title:
+            <input type="text" id="title" />
+        </label>
+        <label>Post Body:
+            <textarea id="body"></textarea>
+        </label>
+        <input type="submit" value="Submit" id="submit"/>
+    </form>
+</template>
+<template name="box2">
+    <div id="boxSouth">
+        <div class="boxed">
+            <h2>South Shore.</h2>
+        </div>
+    </div>
+</template>
+
+<template name="box1">
+    <div id="boxNorth">
+        <div class="boxed">
+            <h2>North Shore.</h2>
+        </div>
+    </div>
+</template>
+
+<template name="box3">
+    <div id="boxEast">
+    <div class="boxed">
+        <h2>East Shore.</h2>
+    </div>
+    </div>
+</template>
+
+<template name="box4">
+    <div id="boxWest">
+        <div class="boxed">
+            <h2>West Shore.</h2>
+        </div>
+    </div>
+</template>
+
+<template name="myformsite">
+    {{> loginButtons}}
+    {{> box1}}
+    {{> posts}}
+    {{#if currentUser}}
+    {{>form}}
+    {{else}}
+    <p>Please log in to submit a new post.</p>
+    {{/if}}
+    {{> box2}}
+    {{> posts}}
+    {{#if currentUser}}
+    {{>form}}
+    {{else}}
+    <p>Please log in to submit a new post.</p>
+    {{/if}}
+    {{> box3}}
+    {{> posts}}
+    {{#if currentUser}}
+    {{>form}}
+    {{else}}
+    <p>Please log in to submit a new post.</p>
+    {{/if}}
+    {{> box4}}
+    {{> posts}}
+    {{#if currentUser}}
+    {{>form}}
+    {{else}}
+    <p>Please log in to submit a new post.</p>
+    {{/if}}
+</template>
+
+<template name="about">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Ryan's Web Project</a>
+                <a class="navbar-brand" href="{{pathFor route= 'home'}}">Home</a>
+                <a class="navbar-brand" href="{{pathFor route= 'about'}}">About</a>
+                <a class="navbar-brand" href="{{pathFor route= 'forumpage'}}">Forum</a>
+                <a class="navbar-brand" href="{{pathFor route= 'pics'}}">Pics</a>
+                <a class="navbar-brand" href="#">{{> loginButtons}}</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>About This Site</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-md-6">
+                <h2>About This Site</h2>
+                <p>This will show you what my website is.</p>
+                <div class="aboutboxed">
+                    <h4>This website is my ICS415 final project.</h4>
+                    <h4>It is a somewhat forum for sharing fishing info.</h4>
+                    <h4>Users must sign in to post things but guests still may view the posts</h4>
+                    <h4>There is a home page, forum page, and this about me page</h4>
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+                <h2>Technology Used</h2>
+                <p>This will describe how I made it.</p>
+                <div class="aboutboxed">
+                    <h4>Some of the web technology that I used were...</h4>
+                    <h4>Meteor to develop the project,</h4>
+                    <h4>BootStrap to support make the webpages responsive</h4>
+                    <h4>Accounts-ui & accounts-passwords to manage client's accounts</h4>
+                    <h4>Iron:Router to help route between webpages (templates)</h4>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <hr>
+    <footer>
+        <h4>&copy; 2015 Ryan Buillard</h4>
+    </footer>
+
+</template>
+
+<template name="pics">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Ryan's Web Project</a>
+                <a class="navbar-brand" href="{{pathFor route= 'home'}}">Home</a>
+                <a class="navbar-brand" href="{{pathFor route= 'about'}}">About</a>
+                <a class="navbar-brand" href="{{pathFor route= 'forumpage'}}">Forum</a>
+                <a class="navbar-brand" href="{{pathFor route= 'pics'}}">Pics</a>
+                <a class="navbar-brand" href="#">{{> loginButtons}}</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Fish Pics</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-md-3">
+                <img src="/images/ahi2.jpg" alt="ahi">
+            </div>
+
+            <div class="col-md-3">
+                <img src="/images/tohei2.png" alt="tohei">
+            </div>
+            <div class="col-md-3">
+                <img src="/images/kumu1.png" alt="kumu">
+            </div>
+
+            <div class="col-md-3">
+                <img src="/images/mahi.jpg" alt="mahi">
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <img src="/images/menpachi2.png" alt="menpachii">
+            </div>
+
+            <div class="col-md-3">
+                <img src="/images/tako2.png" alt="tako">
+            </div>
+            <div class="col-md-3">
+                <img src="/images/uhu3.png" alt="uhu">
+            </div>
+
+            <div class="col-md-3">
+                <img src="/images/omilu2.png" alt="omilu">
+            </div>
+
+        </div>
+
+    </div>
+    <hr>
+    <footer>
+        <h4>&copy; 2015 Ryan Buillard</h4>
+    </footer>
+
+</template>
+
+
+
+
